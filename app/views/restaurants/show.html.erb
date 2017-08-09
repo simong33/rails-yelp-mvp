@@ -1,0 +1,11 @@
+<h1><%= @restaurant.name %></h1>
+<h2> Address: <%= @restaurant.address %> </h2>
+<h3> Category: <%= @restaurant.category.capitalize %> </h3>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li>
+    <p> <%= review.content %> </p>
+    <p> <%= review.rating %> </p>
+    </li>
+    <% end %>
+</ul>
