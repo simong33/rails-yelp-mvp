@@ -3,11 +3,13 @@
 <h2> Address: <%= @restaurant.address %> </h2>
 <h3> Category: <%= @restaurant.category.capitalize %> </h3>
 
+<h3>Average rating: <%= @restaurant.mean_reviews %>/5</h3>
 <h3> <%= link_to 'Write a review', new_restaurant_review_path(@restaurant) %> </h3>
 <ul>
-  <% @restaurant.reviews.reverse.each do |review| %>
+  <% @restaurant.reviews.last(10).reverse.each do |review| %>
     <li>
     <p> "<%= review.content %>" | <%= review.rating %>/5 </p>
     </li>
     <% end %>
+    <p><%= link_to 'See more comments...', '#' %></p>
 </ul>

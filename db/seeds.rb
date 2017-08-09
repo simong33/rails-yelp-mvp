@@ -7,16 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts 'Cleaning database...'
-Restaurant.destroy_all
+# Restaurant.destroy_all
 
-puts 'Creating restaurants...'
+# puts 'Creating restaurants...'
 
-5.times do
-  Restaurant.create!(
-    name: Faker::Simpsons.location,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
-    category: ["chinese", "italian", "japanese", "french", "belgian"].sample
+# 5.times do
+#   Restaurant.create!(
+#     name: Faker::Simpsons.location,
+#     address: Faker::Address.street_address,
+#     phone_number: Faker::PhoneNumber.phone_number,
+#     category: ["chinese", "italian", "japanese", "french", "belgian"].sample
+#   )
+# end
+
+30.times do
+  Review.create!(
+    content: Faker::HarryPotter.quote,
+    rating: [4,5].sample,
+    restaurant_id: [33, 34, 35, 36].sample
   )
 end
 puts 'Finished!'
