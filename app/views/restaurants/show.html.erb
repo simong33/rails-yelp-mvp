@@ -1,11 +1,13 @@
+<%= link_to 'Return to restaurant list', restaurants_path %>
 <h1><%= @restaurant.name %></h1>
 <h2> Address: <%= @restaurant.address %> </h2>
 <h3> Category: <%= @restaurant.category.capitalize %> </h3>
+
+<h3> <%= link_to 'Write a review', new_restaurant_review_path(@restaurant) %> </h3>
 <ul>
-  <% @restaurant.reviews.each do |review| %>
+  <% @restaurant.reviews.reverse.each do |review| %>
     <li>
-    <p> <%= review.content %> </p>
-    <p> <%= review.rating %> </p>
+    <p> "<%= review.content %>" | <%= review.rating %>/5 </p>
     </li>
     <% end %>
 </ul>
